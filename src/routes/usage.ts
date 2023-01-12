@@ -1,11 +1,11 @@
 import express from 'express';
-import { getCurrencies } from '../controllers/currency.controller';
+import { getUsage } from '../controllers/usage.controller';
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const data = await getCurrencies();
+        const data = await getUsage();
         res.status(200).json(data);
     } catch (error) {
         const e = error as Error;
