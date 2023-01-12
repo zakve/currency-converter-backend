@@ -33,3 +33,7 @@ OPENEXCHANGERATES_KEY=**YOUR_KEY**
 ```
 npm test
 ```
+
+### Demo
+
+[http://currencyconverter-env.eba-xcdiy96e.eu-central-1.elasticbeanstalk.com/](http://currencyconverter-env.eba-xcdiy96e.eu-central-1.elasticbeanstalk.com/)
