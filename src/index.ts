@@ -5,6 +5,7 @@ import healthRouter from './routes/health'
 import currencyRouter from './routes/currency';
 import usageRouter from './routes/usage'
 
+app.use('/', healthRouter)
 app.use('/health', healthRouter)
 app.use('/currencies', currencyRouter)
 app.use('/usage', usageRouter)
