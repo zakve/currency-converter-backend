@@ -5,6 +5,13 @@ API URL: [https://openexchangerates.org/api/](https://openexchangerates.org/api/
 
 Documentation: [https://docs.openexchangerates.org/](https://docs.openexchangerates.org/)
 
+## Stack/Features
+> - Node.js
+> - Typescript
+> - Axios
+> - AWS CI/CD
+> - Jest Supertest
+
 
 ## Instalation
 
@@ -13,11 +20,16 @@ Documentation: [https://docs.openexchangerates.org/](https://docs.openexchangera
 git clone https://github.com/zakve/currency-converter-backend.git
 cd currency-converter-backend
 npm i
-npm run start
+npm run start:dev
 ```
 
 ### Set `.evn` file
 Create `.env` file and add your openexchangerates App ID key
 ```
 OPENEXCHANGERATES_KEY=**YOUR_KEY**
+```
+
+### Tests
+```
+npm test
 ```

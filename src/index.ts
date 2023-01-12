@@ -1,9 +1,11 @@
 import express from 'express';
 const app = express();
 
+import healthRouter from './routes/health'
 import currencyRouter from './routes/currency';
 import usageRouter from './routes/usage'
 
+app.use('/health', healthRouter)
 app.use('/currencies', currencyRouter)
 app.use('/usage', usageRouter)
 
