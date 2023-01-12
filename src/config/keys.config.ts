@@ -1,4 +1,4 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-export const OPENEXCHANGERATES_APP_ID = process.env.OPENEXCHANGERATES_APP_ID;
+export const OPENEXCHANGERATES_KEY = process.env.OPENEXCHANGERATES_KEY;
