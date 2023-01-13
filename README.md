@@ -20,7 +20,7 @@ Documentation: [https://docs.openexchangerates.org/](https://docs.openexchangera
 git clone https://github.com/zakve/currency-converter-backend.git
 cd currency-converter-backend
 npm i
-npm run start:dev
+npm run dev
 ```
 
 ### Set `.evn` file
