@@ -5,12 +5,15 @@ import healthRouter from './routes/health'
 import currencyRouter from './routes/currency'
 import usageRouter from './routes/usage'
 import latestRouter from './routes/latest'
+import convertRouter from './routes/convert'
 
+app.use(express.json());
 app.use('/', healthRouter)
 app.use('/health', healthRouter)
 app.use('/currencies', currencyRouter)
 app.use('/usage', usageRouter)
 app.use('/latest', latestRouter)
+app.use('/convert', convertRouter)
 
 if (process.env.NODE_ENV !== 'test') {
     const PORT = process.env.PORT || 3000;
