@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
     // }
 
     if (!to || !validator.isAlpha(to.toString())) {
-        return res.status(400).json({ error: 'Invalid to currency' });
+        return res.status(400).json({ error: 'Invalid currency' });
     }
     try {
         // /convert in openexchangerates.org is available only for premium
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
         res.status(200).json({ data, request, response });
     } catch (error) {
         const e = error as Error;
-        res.status(500).json({ message: e.message });
+        res.status(400).json({ message: e.message });
     }
 });
 
