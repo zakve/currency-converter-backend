@@ -1,27 +1,43 @@
 import express from 'express';
-import { getConvert } from '../controllers/convert.controller';
 import validator from 'validator';
+import { getLatestExchangeRates } from '../controllers/latest.controller';
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    const { value, from, to } = req.body;
+    const { amount, to } = req.body;
 
     // Input validation
-    if (!value || !validator.isCurrency(value.toString(), { allow_negatives: false })) {
+    if (!amount || !validator.isCurrency(amount.toString(), { allow_negatives: false })) {
         return res.status(400).json({ error: 'Invalid amount' });
     }
 
-    if (!from || !validator.isAlpha(from.toString())) {
-        return res.status(400).json({ error: 'Invalid from currency' });
-    }
+    // In free version of openexchangerates.org will be used only USD
+    // if (!from || !validator.isAlpha(from.toString())) {
+    //     return res.status(400).json({ error: 'Invalid from currency' });
+    // }
 
     if (!to || !validator.isAlpha(to.toString())) {
         return res.status(400).json({ error: 'Invalid to currency' });
     }
     try {
-        const data = await getConvert({ value, from, to });
-        res.status(200).json(data);
+        // /convert in openexchangerates.org is available only for premium
+        // const data = await getConvert({ value, from, to });
+        const data = await getLatestExchangeRates();
+
+        if (data) {
+            //Calculate the converted amount
+            const convertedAmount = amount * data.rates[to];
+            if (!convertedAmount)
+                throw new Error("Currency was not found");
+
+            const request = { amount, to }
+            const response = convertedAmount
+
+            res.status(200).json({ data, request, response });
+        } else {
+            throw new Error("GET exchange rates failed");
+        }
     } catch (error) {
         const e = error as Error;
         res.status(500).json({ message: e.message });
