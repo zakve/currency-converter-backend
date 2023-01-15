@@ -25,19 +25,18 @@ router.post('/', async (req, res) => {
         // const data = await getConvert({ value, from, to });
         const data = await getLatestExchangeRates();
 
-        if (data) {
-            //Calculate the converted amount
-            const convertedAmount = amount * data.rates[to];
-            if (!convertedAmount)
-                throw new Error("Currency was not found");
-
-            const request = { amount, to }
-            const response = convertedAmount
-
-            res.status(200).json({ data, request, response });
-        } else {
+        if (!data)
             throw new Error("GET exchange rates failed");
-        }
+
+        //Calculate the converted amount
+        const convertedAmount = amount * data.rates[to];
+        if (!convertedAmount)
+            throw new Error("Currency was not found");
+
+        const request = { amount, to }
+        const response = convertedAmount
+
+        res.status(200).json({ data, request, response });
     } catch (error) {
         const e = error as Error;
         res.status(500).json({ message: e.message });
