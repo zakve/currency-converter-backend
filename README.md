@@ -9,7 +9,7 @@ Documentation: [https://docs.openexchangerates.org/](https://docs.openexchangera
 > - Node.js
 > - Typescript
 > - Axios
-> - AWS CI/CD
+> - AWS CI/CD (CodePipeline, Elastic Beanstalk)
 > - Jest Supertest
 
 
