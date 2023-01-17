@@ -37,3 +37,11 @@ npm test
 ### Demo
 
 [http://currencyconverter-env.eba-xcdiy96e.eu-central-1.elasticbeanstalk.com/](http://currencyconverter-env.eba-xcdiy96e.eu-central-1.elasticbeanstalk.com/)
+
+### TODO
+- Add Firebase or AWS Amplify
+- Implement statistics 
+  - Most popular destination currency
+  - Total amount converted (in USD)
+  - Total number of conversion requests made
+- Generate endpoints documentation on Swagger or ReDoc
