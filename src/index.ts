@@ -1,4 +1,6 @@
 import express from 'express';
+import cors from 'cors';
+
 const app = express();
 
 import healthRouter from './routes/health'
@@ -7,6 +9,7 @@ import usageRouter from './routes/usage'
 import latestRouter from './routes/latest'
 import convertRouter from './routes/convert'
 
+app.use(cors())
 app.use(express.json());
 app.use('/', healthRouter)
 app.use('/health', healthRouter)
