@@ -27,6 +27,9 @@ npm run dev
 Create `.env` file and add your openexchangerates App ID key
 ```
 OPENEXCHANGERATES_KEY=**YOUR_KEY**
+AWS_ACCESS_KEY_ID=**YOUR_ACCESS_KEY**
+AWS_SECRET_ACCESS_KEY=**YOUR_SECRET_ACCESS_KEY**
+AWS_REGION=**YOUR_REGION**
 ```
 
 ### Tests
