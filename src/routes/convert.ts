@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
         const response = convertedAmount
 
         // Update statistics in DB
-        await updateItem(to, parseInt(amount), 1)
+        await updateItem({ destinationCurrency: to, totalAmountConverted: parseInt(amount), totalConversionRequests: 1 })
 
         res.status(200).json({ data, request, response });
     } catch (error) {

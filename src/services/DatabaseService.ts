@@ -1,6 +1,7 @@
 import { dynamoClient, TABLE_NAME } from "../config/dynamo";
+import { IStatistics } from "../models/statistics.model";
 
-export const updateItem = async (destinationCurrency: string, totalAmountConverted: number, totalConversionRequests: number) => {
+export const updateItem = async ({ destinationCurrency, totalAmountConverted, totalConversionRequests }: IStatistics) => {
     try {
         const params = {
             TableName: TABLE_NAME,
@@ -28,7 +29,7 @@ export const updateItem = async (destinationCurrency: string, totalAmountConvert
     }
 }
 
-export const putItem = async (destinationCurrency: string, totalAmountConverted: number, totalConversionRequests: number) => {
+export const putItem = async ({ destinationCurrency, totalAmountConverted, totalConversionRequests }: IStatistics) => {
     try {
         const params = {
             TableName: TABLE_NAME,
