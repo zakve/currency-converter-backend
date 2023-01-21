@@ -1,6 +1,8 @@
 import express from 'express';
 import validator from 'validator';
+
 import { getLatestExchangeRates } from '../controllers/latest.controller';
+import { updateItem } from '../services/DatabaseService';
 
 const router = express.Router();
 
@@ -35,6 +37,9 @@ router.post('/', async (req, res) => {
 
         const request = { amount, to }
         const response = convertedAmount
+
+        // Update statistics in DB
+        await updateItem(to, parseInt(amount), 1)
 
         res.status(200).json({ data, request, response });
     } catch (error) {
