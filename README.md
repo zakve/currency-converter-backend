@@ -10,6 +10,7 @@ Documentation: [https://docs.openexchangerates.org/](https://docs.openexchangera
 > - Typescript
 > - Axios
 > - AWS CI/CD (CodePipeline, Elastic Beanstalk)
+> - AWS DynamoDB for statistics
 > - Jest Supertest
 
 
@@ -42,7 +43,7 @@ npm test
 [http://currencyconverter-env.eba-xcdiy96e.eu-central-1.elasticbeanstalk.com/](http://currencyconverter-env.eba-xcdiy96e.eu-central-1.elasticbeanstalk.com/)
 
 ### TODO
-- Add Firebase or AWS Amplify
+- Add tests for DB functions
 - Implement statistics 
   - Most popular destination currency
   - Total amount converted (in USD)
