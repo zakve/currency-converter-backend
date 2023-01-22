@@ -8,6 +8,7 @@ import currencyRouter from './routes/currency'
 import usageRouter from './routes/usage'
 import latestRouter from './routes/latest'
 import convertRouter from './routes/convert'
+import statsRouter from './routes/stats'
 
 app.use(cors())
 app.use(express.json());
@@ -17,6 +18,7 @@ app.use('/currencies', currencyRouter)
 app.use('/usage', usageRouter)
 app.use('/latest', latestRouter)
 app.use('/convert', convertRouter)
+app.use('/stats', statsRouter)
 
 if (process.env.NODE_ENV !== 'test') {
     const PORT = process.env.PORT || 3000;

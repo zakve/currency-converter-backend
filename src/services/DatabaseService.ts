@@ -46,3 +46,17 @@ export const putItem = async ({ destinationCurrency, totalAmountConverted, total
         throw new Error('An error occurred while put the item. Please try again later.')
     }
 }
+
+export const getStats = async () => {
+    try {
+        const params = {
+            TableName: "CurrencyConversionStats",
+        };
+
+        const stats = await dynamoClient.scan(params).promise();
+        return stats
+    } catch (error) {
+        console.error(error)
+        throw new Error('Error retrieving data from DB.')
+    }
+}
