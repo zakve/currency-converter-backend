@@ -2,27 +2,33 @@ import express from 'express';
 import validator from 'validator';
 
 import { getLatestExchangeRates } from '../controllers/latest.controller';
+import { IConvert } from '../models/convert.model';
 import { updateItem } from '../services/DatabaseService';
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
-    const { amount, to } = req.body;
-
-    // Input validation
+// Input validations
+const inputsValidation = ({ amount, to }: IConvert) => {
     if (!amount || !validator.isCurrency(amount.toString(), { allow_negatives: false })) {
-        return res.status(400).json({ error: 'Invalid amount' });
+        throw new Error('Invalid amount');
     }
 
     // In free version of openexchangerates.org will be used only USD
     // if (!from || !validator.isAlpha(from.toString())) {
-    //     return res.status(400).json({ error: 'Invalid from currency' });
+    //     throw new Error('Invalid from currency');
     // }
 
     if (!to || !validator.isAlpha(to.toString())) {
-        return res.status(400).json({ error: 'Invalid currency' });
+        throw new Error('Invalid currency');
     }
+}
+
+router.post('/', async (req, res) => {
     try {
+        const { amount, to } = req.body;
+
+        inputsValidation({ amount, to })
+
         // /convert in openexchangerates.org is available only for premium
         // const data = await getConvert({ value, from, to });
         const data = await getLatestExchangeRates();

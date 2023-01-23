@@ -1,5 +1,4 @@
 export interface IConvert {
-    value: number;
-    from: string;
+    amount: number;
     to: string;
 }
