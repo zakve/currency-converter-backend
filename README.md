@@ -33,6 +33,11 @@ AWS_SECRET_ACCESS_KEY=**YOUR_SECRET_ACCESS_KEY**
 AWS_REGION=**YOUR_REGION**
 ```
 
+### Endpoints documentation
+```
+http://localhost:3000/docs/
+```
+
 ### Tests
 ```
 npm test
@@ -48,4 +53,3 @@ npm test
   - Most popular destination currency
   - Total amount converted (in USD)
   - Total number of conversion requests made
-- Generate endpoints documentation on Swagger or ReDoc
