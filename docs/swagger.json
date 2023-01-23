@@ -1,0 +1,395 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Currency Converter",
+    "version": "1.0.0",
+    "description": "API documentation for Currency Converter"
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Currency",
+      "description": "API for currency converter"
+    }
+  ],
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "health",
+        "summary": "health",
+        "tags": [
+          "Currency"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "message": "OK"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currencies": {
+      "get": {
+        "operationId": "currencies",
+        "summary": "List of currencies",
+        "tags": [
+          "Currency"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "AED": "United Arab Emirates Dirham",
+                "AFN": "Afghan Afghani",
+                "ALL": "Albanian Lek",
+                "AMD": "Armenian Dram",
+                "ANG": "Netherlands Antillean Guilder",
+                "AOA": "Angolan Kwanza",
+                "ARS": "Argentine Peso",
+                "AUD": "Australian Dollar",
+                "AWG": "Aruban Florin",
+                "AZN": "Azerbaijani Manat",
+                "BAM": "Bosnia-Herzegovina Convertible Mark",
+                "BBD": "Barbadian Dollar",
+                "BDT": "Bangladeshi Taka",
+                "BGN": "Bulgarian Lev",
+                "BHD": "Bahraini Dinar",
+                "BIF": "Burundian Franc",
+                "BMD": "Bermudan Dollar",
+                "BND": "Brunei Dollar",
+                "BOB": "Bolivian Boliviano",
+                "BRL": "Brazilian Real",
+                "BSD": "Bahamian Dollar",
+                "BTC": "Bitcoin",
+                "BTN": "Bhutanese Ngultrum",
+                "BWP": "Botswanan Pula",
+                "BYN": "Belarusian Ruble",
+                "BZD": "Belize Dollar",
+                "CAD": "Canadian Dollar",
+                "CDF": "Congolese Franc",
+                "CHF": "Swiss Franc",
+                "CLF": "Chilean Unit of Account (UF)",
+                "CLP": "Chilean Peso",
+                "CNH": "Chinese Yuan (Offshore)",
+                "CNY": "Chinese Yuan",
+                "COP": "Colombian Peso",
+                "CRC": "Costa Rican Colón",
+                "CUC": "Cuban Convertible Peso",
+                "CUP": "Cuban Peso",
+                "CVE": "Cape Verdean Escudo",
+                "CZK": "Czech Republic Koruna",
+                "DJF": "Djiboutian Franc",
+                "DKK": "Danish Krone",
+                "DOP": "Dominican Peso",
+                "DZD": "Algerian Dinar",
+                "EGP": "Egyptian Pound",
+                "ERN": "Eritrean Nakfa",
+                "ETB": "Ethiopian Birr",
+                "EUR": "Euro"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usage": {
+      "get": {
+        "operationId": "usage",
+        "summary": "Openexchangerates API usage",
+        "description": "API usage from https://openexchangerates.org/api/",
+        "tags": [
+          "Currency"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "status": 200,
+                "data": {
+                  "app_id": "df79a2cec7a247e8b9017425e0879b88",
+                  "status": "active",
+                  "plan": {
+                    "name": "Free",
+                    "quota": "1000 requests / month",
+                    "update_frequency": "3600s",
+                    "features": {
+                      "base": false,
+                      "symbols": false,
+                      "experimental": true,
+                      "time-series": false,
+                      "convert": false,
+                      "bid-ask": false,
+                      "ohlc": false,
+                      "spot": false
+                    }
+                  },
+                  "usage": {
+                    "requests": 175,
+                    "requests_quota": 1000,
+                    "requests_remaining": 825,
+                    "days_elapsed": 12,
+                    "days_remaining": 19,
+                    "daily_average": 14
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/latest": {
+      "get": {
+        "operationId": "latest",
+        "summary": "Latest currency conversion",
+        "tags": [
+          "Currency"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "disclaimer": "Usage subject to terms: https://openexchangerates.org/terms",
+                "license": "https://openexchangerates.org/license",
+                "timestamp": 1674464400,
+                "base": "USD",
+                "rates": {
+                  "AED": 3.67298,
+                  "AFN": 88.355293,
+                  "ALL": 106.755883,
+                  "AMD": 393.222596,
+                  "ANG": 1.790646,
+                  "AOA": 503.561,
+                  "ARS": 183.4467,
+                  "AUD": 1.426855,
+                  "AWG": 1.8,
+                  "AZN": 1.7,
+                  "BAM": 1.795188,
+                  "BBD": 2,
+                  "BDT": 104.971718,
+                  "BGN": 1.793425,
+                  "BHD": 0.376993,
+                  "BIF": 2060.965939,
+                  "BMD": 1,
+                  "BND": 1.313868,
+                  "BOB": 6.865566,
+                  "BRL": 5.2077,
+                  "BSD": 1,
+                  "BTC": 0.000043996947,
+                  "BTN": 80.634704,
+                  "BWP": 12.721766,
+                  "BYN": 2.50841,
+                  "BZD": 2.002763,
+                  "CAD": 1.334505,
+                  "CDF": 2049.248338,
+                  "CHF": 0.916479,
+                  "CLF": 0.029547,
+                  "CLP": 813.00813,
+                  "CNH": 6.770898,
+                  "CNY": 6.7845,
+                  "COP": 4670.402518,
+                  "CRC": 559.681078,
+                  "CUC": 1,
+                  "CUP": 25.75,
+                  "CVE": 101.208348,
+                  "CZK": 21.931093,
+                  "DJF": 176.880134,
+                  "DKK": 6.82508,
+                  "DOP": 56.394936,
+                  "DZD": 136.001039,
+                  "EGP": 29.895,
+                  "ERN": 15,
+                  "ETB": 53.293127,
+                  "EUR": 0.91742
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats": {
+      "get": {
+        "operationId": "stats",
+        "summary": "Conversion statistics from AWS DynamoDB",
+        "tags": [
+          "Currency"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "Items": [
+                  {
+                    "TotalAmountConverted": 2,
+                    "DestinationCurrency": "AED",
+                    "TotalConversionRequests": 2
+                  },
+                  {
+                    "TotalAmountConverted": 132,
+                    "DestinationCurrency": "EUR",
+                    "TotalConversionRequests": 6
+                  },
+                  {
+                    "TotalAmountConverted": 4,
+                    "DestinationCurrency": "CZK",
+                    "TotalConversionRequests": 4
+                  },
+                  {
+                    "TotalAmountConverted": 1,
+                    "DestinationCurrency": "AFN",
+                    "TotalConversionRequests": 1
+                  }
+                ],
+                "Count": 4,
+                "ScannedCount": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "/convert": {
+      "post": {
+        "operationId": "convert",
+        "summary": "Convert currency",
+        "tags": [
+          "Currency"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Request body",
+            "in": "body",
+            "description": "USD amount to convert",
+            "required": true,
+            "#ref": "#/definitions/Convert"
+          }
+        ],
+        "responses": {
+          "200": {
+            "examples": {
+              "application/json": {
+                "data": {
+                  "disclaimer": "Usage subject to terms: https://openexchangerates.org/terms",
+                  "license": "https://openexchangerates.org/license",
+                  "timestamp": 1674464400,
+                  "base": "USD",
+                  "rates": {
+                    "AED": 3.67298,
+                    "AFN": 88.355293,
+                    "ALL": 106.755883,
+                    "AMD": 393.222596,
+                    "ANG": 1.790646,
+                    "AOA": 503.561,
+                    "ARS": 183.4467,
+                    "AUD": 1.426855,
+                    "AWG": 1.8,
+                    "AZN": 1.7,
+                    "BAM": 1.795188,
+                    "BBD": 2,
+                    "BDT": 104.971718,
+                    "BGN": 1.793425,
+                    "BHD": 0.376993,
+                    "BIF": 2060.965939,
+                    "BMD": 1,
+                    "BND": 1.313868,
+                    "BOB": 6.865566,
+                    "BRL": 5.2077,
+                    "BSD": 1,
+                    "BTC": 0.000043996947,
+                    "BTN": 80.634704,
+                    "BWP": 12.721766,
+                    "BYN": 2.50841,
+                    "BZD": 2.002763,
+                    "CAD": 1.334505,
+                    "CDF": 2049.248338,
+                    "CHF": 0.916479,
+                    "CLF": 0.029547,
+                    "CLP": 813.00813,
+                    "CNH": 6.770898,
+                    "CNY": 6.7845,
+                    "COP": 4670.402518,
+                    "CRC": 559.681078,
+                    "CUC": 1,
+                    "CUP": 25.75,
+                    "CVE": 101.208348,
+                    "CZK": 21.931093,
+                    "DJF": 176.880134,
+                    "DKK": 6.82508,
+                    "DOP": 56.394936,
+                    "DZD": 136.001039,
+                    "EGP": 29.895,
+                    "ERN": 15,
+                    "ETB": 53.293127,
+                    "EUR": 0.91742
+                  }
+                },
+                "request": {
+                  "amount": 10,
+                  "to": "EUR"
+                },
+                "response": 9.1742
+              }
+            }
+          },
+          "400": {
+            "examples": {
+              "application/json": {
+                "message": "Invalid amount"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "definitions": {
+    "Convert": {
+      "type": "object",
+      "required": [
+        "amount",
+        "to"
+      ],
+      "properties": {
+        "amount": {
+          "type": "integer",
+          "format": "int64",
+          "example": 10
+        },
+        "to": {
+          "type": "string",
+          "example": "EUR"
+        }
+      }
+    }
+  }
+}

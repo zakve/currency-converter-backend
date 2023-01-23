@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
+const swaggerDocument = require('../docs/swagger.json');
 
 const app = express();
 
@@ -19,6 +21,8 @@ app.use('/usage', usageRouter)
 app.use('/latest', latestRouter)
 app.use('/convert', convertRouter)
 app.use('/stats', statsRouter)
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 if (process.env.NODE_ENV !== 'test') {
     const PORT = process.env.PORT || 3000;
